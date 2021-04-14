@@ -1,0 +1,27 @@
+{% extends 'MyPolls/layout.html' %}
+
+{% block content %}
+
+  <style>
+       BODY
+       {
+        background: url(static/MyPolls/img/background1.png) no-repeat;
+       }
+  </style>
+    <div class="features">
+        <h1>
+            <p style="color:#DC143C; font-size:50px">
+            Main page
+        </h1>
+        <h2>
+            <p style="color:black; font-size:25px">
+            Welcome My first Django site!<br>
+            Where you want to go?
+        </h2>
+        <h3>
+            <p style="color:#DC143C; font-size:15px">
+            <button class="btn btn-outline-warning" style="height:400px;width:400px" onclick="document.location='MyPolls'">Polls</button>
+            <button class="btn btn-outline-warning" style="height:400px;width:400px" onclick="document.location='MyBlogs'">Blogs</button>
+        </h3>
+    </div>
+{% endblock %}

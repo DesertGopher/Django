@@ -1,0 +1,15 @@
+{% extends 'MyPolls/layout.html' %}
+{% block title %}Создание Блога{% endblock %}
+{% block content %}
+<div class="features">
+    <h1>
+        Удаление ответа<br>
+        Хотите удалить этот ответ?
+    </h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">Удалить ответ</button>
+        <button class="btn btn-warning" type="submit">Нет, не хочу, но но все равно удалить</button>
+    </form>
+</div>
+{% endblock %}

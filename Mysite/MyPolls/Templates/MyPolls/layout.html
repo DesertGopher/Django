@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'MyPolls/css/main.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="shortcut icon" href="static/MyPolls/img/icon.ico" type="images/x-ico">
+</head>
+<body>
+    <aside>
+        <img src="{% static 'MyPolls/img/django-python.png' %}" alt="Django"><br>
+        <!--<span class="django">My Site</span>-->
+        <h3><p align="left">Navigation</h3>
+        <ul>
+            <a href="http://127.0.0.1:8080/"><li><i class="fas fa-home"></i> Main page</li></a>
+            <a href="http://127.0.0.1:8080/MyPolls/"><li><i class="fas fa-poll"></i> My Polls</li></a>
+            <a href="http://127.0.0.1:8080/MyBlogs/"><li><i class="fas fa-blog"></i> My Blogs</li></a>
+            <a href="http://127.0.0.1:8080/admin/"><li><i class="fas fa-user-cog"></i> Admin console</li></a>
+        </ul>
+    </aside>
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
+</body>
+</html>
