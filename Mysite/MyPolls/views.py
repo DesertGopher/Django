@@ -86,6 +86,7 @@ class ChoiceUpdateView(UpdateView):
     model = Choice
     pk_url_kwarg = "choice_id"
     fields = ['question', 'choice_text']
+    success_url = '/MyPolls/'
     template_name = 'MyPolls/choice_update_form.html'
 
 #class ChoiceCreateView(CreateForm):
