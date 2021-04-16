@@ -15,10 +15,12 @@
         <!--<span class="django">My Site</span>-->
         <h3><p align="left">Navigation</h3>
         <ul>
-            <a href="http://127.0.0.1:8080/"><li><i class="fas fa-home"></i> Main page</li></a>
-            <a href="http://127.0.0.1:8080/MyPolls/"><li><i class="fas fa-poll"></i> My Polls</li></a>
-            <a href="http://127.0.0.1:8080/MyBlogs/"><li><i class="fas fa-blog"></i> My Blogs</li></a>
-            <a href="http://127.0.0.1:8080/admin/"><li><i class="fas fa-user-cog"></i> Admin console</li></a>
+            <a onclick="document.location='../../main'"><li><i class="fas fa-home"></i> Main page</li></a>
+            <a onclick="document.location='../../MyPolls'"><li><i class="fas fa-poll"></i> My Polls</li></a>
+            <a onclick="document.location='../../MyBlogs'"><li><i class="fas fa-blog"></i> My Blogs</li></a>
+            <br>User: {{ user.username }}
+            <a onclick="document.location='../../logout'"><li><i class="fas fa-sign-out-alt"></i> Log out</li></a><br>
+            <a onclick="document.location='../../admin'"><li><i class="fas fa-user-cog"></i> Admin console</li></a><br>
         </ul>
     </aside>
     <main>

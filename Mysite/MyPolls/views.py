@@ -5,8 +5,8 @@ from django.shortcuts import render, get_object_or_404
 from django.template import loader
 from django.urls import reverse
 from django.views import generic
-from django.views.generic import UpdateView, DeleteView
-
+from django.views.generic import UpdateView, DeleteView, CreateView
+from django.contrib.auth.views import LoginView
 from .forms import CreateForm, CreateChoice
 from .models import Question, Choice
 
@@ -61,6 +61,7 @@ def vote(request, question_id):
 def create_form(request):
     return render(request, 'MyPolls/create_form.html')
 
+
 def create(request):
     error =''
     if request.method == 'POST':
@@ -75,11 +76,25 @@ def create(request):
         'form': form,
         'error': error
     }
-    return  render(request, 'MyPolls/create.html', data)
+    return render(request, 'MyPolls/create.html', data)
 
 
 def success_saved(request):
     return render(request, 'MyPolls/success_saved.html')
+
+
+class Update(UpdateView):
+    model = Question
+    pk_url_kwarg = "question_id"
+    template_name = 'MyPolls/update.html'
+    form_class = CreateForm
+
+
+class Delete(DeleteView):
+    model = Question
+    pk_url_kwarg = "question_id"
+    success_url = '/MyPolls/'
+    template_name = 'MyPolls/delete.html'
 
 
 class ChoiceUpdateView(UpdateView):
@@ -89,11 +104,6 @@ class ChoiceUpdateView(UpdateView):
     success_url = '/MyPolls/'
     template_name = 'MyPolls/choice_update_form.html'
 
-#class ChoiceCreateView(CreateForm):
-#    model = Choice
-#    pk_url_kwarg = "choice_id"
-#    fields = ['question', 'choice_text']
-#    template_name = 'MyPolls/choice_create_form.html'
 
 def ChoiceCreateView(request):
     error =''
@@ -109,7 +119,8 @@ def ChoiceCreateView(request):
         'form': form,
         'error': error
     }
-    return  render(request, 'MyPolls/choice_create_form.html', data)
+    return render(request, 'MyPolls/choice_create_form.html', data)
+
 
 class ChoiceDeleteView(DeleteView):
     model = Choice
@@ -117,17 +128,4 @@ class ChoiceDeleteView(DeleteView):
     success_url = '/MyPolls/'
     template_name = 'MyPolls/choice_delete_form.html'
 
-
-class Update(UpdateView):
-    model = Question
-    pk_url_kwarg = "question_id"
-    template_name = 'MyPolls/update.html'
-    form_class = CreateForm
-
-
-class Delete(DeleteView):
-    model = Question
-    pk_url_kwarg = "question_id"
-    success_url = '/MyPolls/'
-    template_name = 'MyPolls/delete.html'
 

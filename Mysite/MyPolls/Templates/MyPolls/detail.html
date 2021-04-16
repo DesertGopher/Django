@@ -13,8 +13,8 @@
                 <p align="left" style="color:black; font-size:20px">
                 <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
                 <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
-                <a style="font-size:13px; color:blue" onclick="document.location='http://127.0.0.1:8080/MyPolls/{{ choice.id }}/update_choice'">Update choice</a>
-                <a style="font-size:13px; color:red" onclick="document.location='http://127.0.0.1:8080/MyPolls/{{ choice.id }}/delete_choice'">Delete choice</a>
+                <a style="font-size:13px; color:blue" onclick="document.location='../../MyPolls/{{ choice.id }}/update_choice'">Update choice</a>
+                <a style="font-size:13px; color:red" onclick="document.location='../../MyPolls/{{ choice.id }}/delete_choice'">Delete choice</a>
             {% endfor %}
                 <br><input type="submit" class="btn btn-success" style="width:300px" value="Vote">
                     <p align="left">
